@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "jsx": "react"
+    },
+    "include": ["src/**/*", "declarations.d.ts"],
+    "exclude": ["node_modules"]
+}
