@@ -1,6 +1,6 @@
 //Imports
 import React from 'react';
-import SCButton from '../../components/buttons/SCButton';
+import ClassicButton from '../../components/buttons/ClassicButton';
 import logo from '../../assets/images/Survivalcraft2-logo.webp';
 import { StyledFeatures, StyledTitle, StyledMain } from './style';
 
@@ -13,12 +13,12 @@ export default function Home() {
                 <h1>Manager</h1>
             </StyledTitle>
             <StyledFeatures>
-                <SCButton name="Worlds" route="/worlds" />
-                <SCButton name="Skins" route="/skins" />
-                <SCButton name="Texture packs" route="/textures" />
-                <SCButton name="Furniture packs" route="/furnitures" />
-                <SCButton name="Settings" route="/settings" />
-                <SCButton name="Logs" route="/logs" />
+                <ClassicButton name="Worlds" route="/worlds" />
+                <ClassicButton name="Skins" route="/skins" />
+                <ClassicButton name="Texture packs" route="/textures" />
+                <ClassicButton name="Furniture packs" route="/furnitures" />
+                <ClassicButton name="Settings" route="/settings" />
+                <ClassicButton name="Logs" route="/logs" />
             </StyledFeatures>
         </StyledMain>
     );

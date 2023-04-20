@@ -9,7 +9,7 @@ export const StyledAppContainer = Styled.div`
     overflow: hidden;
     ::before {
         content: "";
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
@@ -18,7 +18,7 @@ export const StyledAppContainer = Styled.div`
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        animation: animBg 40s infinite ease-in-out;
+        animation: animBgImg 40s infinite ease-in-out;
         z-index: -10;
     }
 `;
