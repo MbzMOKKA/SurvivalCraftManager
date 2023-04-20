@@ -2,8 +2,7 @@
 import Styled from 'styled-components';
 
 //Local styles
-export const StyledGenericButton = Styled.div`
-    width: 45%;
+export const StyledGenericButton = Styled.button`
     margin: 12px 18px;
     background-color: #6C675C;
     border-top: #B5AC9A 3px solid;

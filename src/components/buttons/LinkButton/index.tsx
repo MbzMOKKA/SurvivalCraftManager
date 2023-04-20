@@ -1,10 +1,11 @@
 //Imports
 import React from 'react';
-import ActionButton from '../ActionButton';
 import { useNavigate } from 'react-router-dom';
+import { StyledLinkButton } from './style';
 
 //Types
 type LinkButtonProps = {
+    className?: any;
     children: any;
     route: string;
     replace?: boolean;
@@ -12,16 +13,17 @@ type LinkButtonProps = {
 
 //Component of a feature button in the homepage
 export default function LinkButton(props: LinkButtonProps) {
-    const { children, route, replace = false } = props;
+    const { className, children, route, replace = false } = props;
     const navTo = useNavigate();
 
     return (
-        <ActionButton
+        <StyledLinkButton
+            className={className}
             onClick={() => {
-                navTo(route, { replace });
+                route === 'back' ? navTo(-1) : navTo(route, { replace });
             }}
         >
             {children}
-        </ActionButton>
+        </StyledLinkButton>
     );
 }
