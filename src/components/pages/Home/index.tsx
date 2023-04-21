@@ -1,8 +1,8 @@
 //Imports
 import React from 'react';
-import ClassicButton from '../../components/buttons/ClassicButton';
-import logo from '../../assets/images/Survivalcraft2-logo.webp';
+import logo from '../../../assets/images/Survivalcraft2-logo.webp';
 import { StyledFeatures, StyledTitle, StyledMain } from './style';
+import ClassicButton from '../../buttons/FeatureButton';
 
 //Component of the homepage
 export default function Home() {

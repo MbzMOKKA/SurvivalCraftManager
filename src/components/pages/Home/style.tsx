@@ -1,5 +1,6 @@
 //Imports
 import Styled from 'styled-components';
+import { colorPrimary } from '../../../utils/style/colors';
 
 //Local styles
 export const StyledMain = Styled.main`
@@ -26,5 +27,8 @@ export const StyledTitle = Styled.div`
     img {
         width: 100%;
         animation: animLogo 4s infinite ease-in-out;
+    }
+    h1 {
+        color: ${colorPrimary};
     }
 `;

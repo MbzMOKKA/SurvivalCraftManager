@@ -1,11 +1,11 @@
 //Imports
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from '../../pages/Home';
-import ErrorNotFound from '../../pages/ErrorNotFound';
 import { StyledAppContainer } from './style';
-import Nav from '../Nav';
-import BgGrid from '../background/BgGrid';
+import Nav from '../other/Nav';
+import BgGrid from '../other/background/BgGrid';
+import Home from '../pages/Home';
+import ErrorNotFound from '../pages/ErrorNotFound';
 
 //Component of the web application
 export default function App() {

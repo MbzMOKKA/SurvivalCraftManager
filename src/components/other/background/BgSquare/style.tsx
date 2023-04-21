@@ -3,6 +3,7 @@ import Styled from 'styled-components';
 
 //Local styles
 export const StyledSquare = Styled.div<{ initialDelay: number }>`
+    box-sizing: content-box;
     position: relative;
     width: 100%;
     height: 100%;

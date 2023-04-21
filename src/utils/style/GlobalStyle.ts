@@ -1,10 +1,12 @@
 //Imports
 import { createGlobalStyle } from 'styled-components';
+import { navWidth } from '../globalConstants';
 
 //Global styles
 export default createGlobalStyle`
     * {
         font-family: 'LithosPro', Arial, sans-serif;
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
         color: white;
@@ -32,5 +34,8 @@ export default createGlobalStyle`
     h2 {
         font-size: 38px;
         margin: 8px 0px;
+    }
+    main{
+        padding-left: ${navWidth * 100}vw;
     }
 `;

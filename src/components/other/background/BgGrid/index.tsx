@@ -2,12 +2,12 @@
 import React from 'react';
 import BgSquare from '../BgSquare';
 import { StyledGrid } from './style';
-import { squareSize } from '../../../utils/globalConstants';
+import { bgSquareSize } from '../../../../utils/globalConstants';
 
 //Component of the grid in the background
 export default function BgGrid() {
-    const numberOfRows = Math.ceil(window.innerHeight / squareSize);
-    const numberOfColumns = Math.ceil(window.innerWidth / squareSize);
+    const numberOfRows = Math.ceil(window.innerHeight / bgSquareSize);
+    const numberOfColumns = Math.ceil(window.innerWidth / bgSquareSize);
     const numberOfSquares = numberOfRows * numberOfColumns;
 
     const squares = Array.from({ length: numberOfSquares }, (_, i) => {

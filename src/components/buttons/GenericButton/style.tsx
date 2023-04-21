@@ -1,19 +1,19 @@
 //Imports
 import Styled from 'styled-components';
+import { colorBordered } from '../../../utils/style/colors';
 
 //Local styles
 export const StyledGenericButton = Styled.button`
-    margin: 12px 18px;
-    background-color: #6C675C;
-    border-top: #B5AC9A 3px solid;
-    border-bottom: #36332E 3px solid;
-    border-left: #514D45 3px solid;
-    border-right: #90897B 3px solid;
+    background-color: ${colorBordered.gray.background};
+    border-top: ${colorBordered.gray.borderTop} 3px solid;
+    border-bottom: ${colorBordered.gray.borderBottom} 3px solid;
+    border-left: ${colorBordered.gray.borderLeft} 3px solid;
+    border-right: ${colorBordered.gray.borderRight} 3px solid;
     :active{
-        border-top: #36332E 3px solid;
-        border-bottom: #B5AC9A 3px solid;
-        border-left: #90897B 3px solid;
-        border-right: #514D45 3px solid;
+        border-top: ${colorBordered.gray.borderBottom} 3px solid;
+        border-bottom: ${colorBordered.gray.borderTop} 3px solid;
+        border-left: ${colorBordered.gray.borderRight} 3px solid;
+        border-right: ${colorBordered.gray.borderLeft} 3px solid;
     }
     button{
         width: 100%;
