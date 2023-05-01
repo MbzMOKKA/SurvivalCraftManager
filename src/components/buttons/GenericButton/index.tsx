@@ -1,6 +1,6 @@
 //Imports
-import React from 'react';
-import { StyledGenericButton } from './style';
+import React from "react";
+import { StyledGenericButton } from "./style";
 
 //Types
 type GenericButtonProps = {

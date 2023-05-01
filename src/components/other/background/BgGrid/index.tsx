@@ -1,8 +1,8 @@
 //Imports
-import React from 'react';
-import BgSquare from '../BgSquare';
-import { StyledGrid } from './style';
-import { bgSquareSize } from '../../../../utils/globalConstants';
+import React from "react";
+import BgSquare from "../BgSquare";
+import { StyledGrid } from "./style";
+import { bgSquareSize } from "../../../../utils/globalConstants";
 
 //Component of the grid in the background
 export default function BgGrid() {

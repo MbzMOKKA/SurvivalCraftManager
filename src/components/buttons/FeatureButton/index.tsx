@@ -1,6 +1,6 @@
 //Imports
-import React from 'react';
-import { StyledClassicButton } from './style';
+import React from "react";
+import { StyledClassicButton } from "./style";
 
 //Types
 type ClassicButtonProps = {

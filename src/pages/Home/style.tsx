@@ -1,17 +1,15 @@
 //Imports
-import Styled from 'styled-components';
-import { colorPrimary } from '../../../utils/style/colors';
+import styled from "styled-components";
+import { colorPrimary } from "../../utils/style/colors";
 
 //Local styles
-export const StyledMain = Styled.main`
-    min-height: 100vh;
-    display: flex;
+export const StyledMain = styled.main`
     flex-direction: column;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 `;
 
-export const StyledFeatures = Styled.div`
+export const StyledFeatures = styled.div`
     margin-top: 20vh;
     width: 50%;
     display: flex;
@@ -19,11 +17,11 @@ export const StyledFeatures = Styled.div`
     flex-wrap: wrap;
 `;
 
-export const StyledTitle = Styled.div`
+export const StyledTitle = styled.div`
     width: 50%;
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     img {
         width: 100%;
         animation: animLogo 4s infinite ease-in-out;

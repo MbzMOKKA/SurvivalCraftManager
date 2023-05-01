@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'LithosPro';
-    src: url('/src/assets/fonts/LithosPro-Regular.otf') format('truetype');
+    font-family: "LithosPro";
+    src: url("/src/assets/fonts/LithosPro-Regular.otf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }

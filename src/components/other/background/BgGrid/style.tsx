@@ -1,9 +1,9 @@
 //Imports
-import Styled from 'styled-components';
-import { bgSquareSize } from '../../../../utils/globalConstants';
+import styled from "styled-components";
+import { bgSquareSize } from "../../../../utils/globalConstants";
 
 //Local styles
-export const StyledGrid = Styled.div`
+export const StyledGrid = styled.div`
     box-sizing: content-box;
     position: fixed;
     display: grid;

@@ -1,6 +1,6 @@
 //Imports
-import { createGlobalStyle } from 'styled-components';
-import { navWidth } from '../globalConstants';
+import { createGlobalStyle } from "styled-components";
+import { navWidth } from "../globalConstants";
 
 //Global styles
 export default createGlobalStyle`
@@ -37,5 +37,7 @@ export default createGlobalStyle`
     }
     main{
         padding-left: ${navWidth * 100}vw;
+        min-height: 100vh;
+        display: flex;
     }
 `;

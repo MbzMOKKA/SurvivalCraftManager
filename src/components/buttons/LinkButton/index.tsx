@@ -1,7 +1,7 @@
 //Imports
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { StyledLinkButton } from './style';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { StyledLinkButton } from "./style";
 
 //Types
 type LinkButtonProps = {
@@ -20,7 +20,7 @@ export default function LinkButton(props: LinkButtonProps) {
         <StyledLinkButton
             className={className}
             onClick={() => {
-                route === 'back' ? navTo(-1) : navTo(route, { replace });
+                route === "back" ? navTo(-1) : navTo(route, { replace });
             }}
         >
             {children}

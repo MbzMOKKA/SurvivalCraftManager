@@ -1,9 +1,9 @@
 //Imports
-import Styled from 'styled-components';
-import background from '../../assets/images/background.jpg';
+import styled from "styled-components";
+import background from "../../assets/images/background.jpg";
 
 //Local styles
-export const StyledAppContainer = Styled.div`
+export const StyledAppContainer = styled.div`
     min-height: 100vh;
     position: relative;
     overflow: hidden;

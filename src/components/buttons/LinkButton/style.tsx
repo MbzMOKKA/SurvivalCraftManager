@@ -1,8 +1,6 @@
 //Imports
-import Styled from 'styled-components';
-import GenericButton from '../GenericButton';
+import styled from "styled-components";
+import GenericButton from "../GenericButton";
 
 //Local styles
-export const StyledLinkButton = Styled(GenericButton)`
-    
-`;
+export const StyledLinkButton = styled(GenericButton)``;

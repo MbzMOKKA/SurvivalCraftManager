@@ -1,6 +1,6 @@
 //Imports
-import React from 'react';
-import { StyledSquare } from './style';
+import React from "react";
+import { StyledSquare } from "./style";
 
 //Types
 type BgSquareProps = {

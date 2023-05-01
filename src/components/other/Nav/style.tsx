@@ -1,11 +1,11 @@
 //Imports
-import Styled from 'styled-components';
-import LinkButton from '../../buttons/LinkButton';
-import { navWidth } from '../../../utils/globalConstants';
-import { colorBordered } from '../../../utils/style/colors';
+import styled from "styled-components";
+import LinkButton from "../../buttons/LinkButton";
+import { navWidth } from "../../../utils/globalConstants";
+import { colorBordered } from "../../../utils/style/colors";
 
 //Local styles
-export const StyledNav = Styled.div`
+export const StyledNav = styled.div`
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@ export const StyledNav = Styled.div`
     height: 100%;
 `;
 
-export const StyledBackButton = Styled(LinkButton)`
+export const StyledBackButton = styled(LinkButton)`
     width: 100%;
     height: ${navWidth * 100}vw;
     margin-bottom: 8px;
@@ -22,7 +22,7 @@ export const StyledBackButton = Styled(LinkButton)`
     border-bottom: ${colorBordered.green.borderBottom} 3px solid;
     border-left: ${colorBordered.green.borderLeft} 3px solid;
     border-right: ${colorBordered.green.borderRight} 3px solid;
-    :active{
+    :active {
         border-top: ${colorBordered.green.borderBottom} 3px solid;
         border-bottom: ${colorBordered.green.borderTop} 3px solid;
         border-left: ${colorBordered.green.borderRight} 3px solid;
@@ -33,7 +33,7 @@ export const StyledBackButton = Styled(LinkButton)`
     }
 `;
 
-export const StyledPageInfos = Styled.div`
+export const StyledPageInfos = styled.div`
     flex: 1;
     background-color: ${colorBordered.green.background};
     border-top: ${colorBordered.green.borderTop} 3px solid;
