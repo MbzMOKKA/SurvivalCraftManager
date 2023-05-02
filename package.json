@@ -12,7 +12,7 @@
         "@testing-library/user-event": "^13.5.0",
         "concurrently": "^8.0.1",
         "cross-env": "^7.0.3",
-        "electron": "^24.1.3",
+        "electron-is-dev": "^2.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.10.0",
@@ -27,8 +27,21 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "electron:serve": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm run electron:start\"",
-        "electron:build": "",
+        "electron:build": "npm run build && electron-builder -c.extraMetadata.main=build/main.js",
         "electron:start": "wait-on tcp:3000 && electron ."
+    },
+    "build": {
+        "extends": null,
+        "appId": "com.survivalcraft-manager",
+        "files": [
+            "dist/**/*",
+            "build/**/*",
+            "node_modules/**/*",
+            "package.json"
+        ],
+        "directories": {
+            "buildResources": "assets"
+        }
     },
     "eslintConfig": {
         "extends": [
@@ -49,6 +62,8 @@
         ]
     },
     "devDependencies": {
-        "@types/styled-components": "^5.1.26"
+        "@types/styled-components": "^5.1.26",
+        "electron": "^24.1.3",
+        "electron-builder": "^23.6.0"
     }
 }
