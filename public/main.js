@@ -47,8 +47,20 @@ app.on("activate", function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });
 
-// Listen for the 'read-xml-file' event from the renderer process
-ipcMain.handle("read-xml-file", async (e, fileName) => {
+function convertXMLtoJS(data) {
+    return new Promise((resolve, reject) => {
+        parser.parseString(data, (error, result) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(result);
+            }
+        });
+    });
+}
+
+// Listen for the 'read-file' event from the renderer process
+ipcMain.handle("read-file", async (e, fileName) => {
     const filePath = `C:/Users/dylan/AppData/Local/Packages/20961CandyRufusGames.Survivalcraft2_c7jxg4av36ap6/LocalState/${fileName}`;
 
     return new Promise((resolve, reject) => {
@@ -57,13 +69,19 @@ ipcMain.handle("read-xml-file", async (e, fileName) => {
                 reject(err);
                 return;
             }
-            parser.parseString(data, (error, result) => {
-                if (error) {
-                    reject(error);
-                    return;
-                }
-                resolve(result);
-            });
+
+            // Check if the file has a .xml extension
+            if (path.extname(fileName) === ".xml") {
+                convertXMLtoJS(data)
+                    .then((result) => {
+                        resolve(result);
+                    })
+                    .catch((error) => {
+                        reject(error);
+                    });
+            } else {
+                resolve(data);
+            }
         });
     });
 });

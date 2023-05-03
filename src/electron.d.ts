@@ -1,5 +1,5 @@
 declare interface Window {
     electronAPI: {
-        readXMLFile: (fileName: string) => Promise<any>;
+        readFile: (fileName: string) => Promise<any>;
     };
 }
