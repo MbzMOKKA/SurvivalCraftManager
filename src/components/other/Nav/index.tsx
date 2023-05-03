@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { StyledBackButton, StyledNav, StyledPageInfos } from "./style";
 import backArrow from "../../../assets/images/icons/back_arrow.png";
+//import fs from "fs";
 
 //Component of the navigation on the left
 export default function Nav() {
@@ -20,7 +21,7 @@ export default function Nav() {
             .catch((error) => {
                 console.error("Error fetching XML:", error);
             });
-    }, []);
+    });
 
     console.log(xmlData);
 

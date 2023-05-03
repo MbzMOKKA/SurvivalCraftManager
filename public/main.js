@@ -1,9 +1,12 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 
 const path = require("path");
+const fs = require("fs");
+const xml2js = require("xml2js");
 const isDev = require("electron-is-dev");
 
 require("@electron/remote/main").initialize();
+const parser = new xml2js.Parser();
 
 function createWindow() {
     // Create the browser window.
@@ -11,11 +14,12 @@ function createWindow() {
         width: 800,
         height: 600,
         webPreferences: {
-            nodeIntegration: true,
+            nodeIntegration: false,
             enableRemoteModule: true,
-            contextIsolation: false,
+            contextIsolation: true,
             nodeIntegrationInWorker: true,
             nodeIntegrationInSubFrames: true,
+            preload: path.join(__dirname, "preload.js"),
         },
     });
 
@@ -41,4 +45,25 @@ app.on("activate", function () {
     // On OS X it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
+});
+
+// Listen for the 'read-xml-file' event from the renderer process
+ipcMain.handle("read-xml-file", async (e, fileName) => {
+    const filePath = `C:/Users/dylan/AppData/Local/Packages/20961CandyRufusGames.Survivalcraft2_c7jxg4av36ap6/LocalState/${fileName}`;
+
+    return new Promise((resolve, reject) => {
+        fs.readFile(filePath, "utf8", (err, data) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            parser.parseString(data, (error, result) => {
+                if (error) {
+                    reject(error);
+                    return;
+                }
+                resolve(result);
+            });
+        });
+    });
 });
