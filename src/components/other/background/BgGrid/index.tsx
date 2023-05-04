@@ -2,7 +2,7 @@
 import React from "react";
 import BgSquare from "../BgSquare";
 import { StyledGrid } from "./style";
-import { bgSquareSize } from "../../../../utils/globalConstants";
+import { bgSquareSize } from "../../../../utils";
 
 //Component of the grid in the background
 export default function BgGrid() {

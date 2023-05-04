@@ -1,15 +1,14 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
-
 const path = require("path");
 const fs = require("fs");
 const xml2js = require("xml2js");
 const isDev = require("electron-is-dev");
-
 require("@electron/remote/main").initialize();
+
 const parser = new xml2js.Parser();
+const builder = new xml2js.Builder({ headless: true });
 
 function createWindow() {
-    // Create the browser window.
     const win = new BrowserWindow({
         width: 800,
         height: 600,
@@ -34,19 +33,14 @@ app.on("ready", createWindow);
 
 // Quit when all windows are closed.
 app.on("window-all-closed", function () {
-    // On OS X it is common for applications and their menu bar
-    // to stay active until the user quits explicitly with Cmd + Q
-    if (process.platform !== "darwin") {
-        app.quit();
-    }
+    app.quit();
 });
 
 app.on("activate", function () {
-    // On OS X it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });
 
+//Convert XML data into JS object
 function convertXMLtoJS(data) {
     return new Promise((resolve, reject) => {
         parser.parseString(data, (error, result) => {
@@ -59,8 +53,8 @@ function convertXMLtoJS(data) {
     });
 }
 
-// Listen for the 'read-file' event from the renderer process
-ipcMain.handle("read-file", async (e, fileName) => {
+//To read a file
+ipcMain.handle("file-read", async (e, fileName) => {
     const filePath = `C:/Users/dylan/AppData/Local/Packages/20961CandyRufusGames.Survivalcraft2_c7jxg4av36ap6/LocalState/${fileName}`;
 
     return new Promise((resolve, reject) => {
@@ -83,5 +77,19 @@ ipcMain.handle("read-file", async (e, fileName) => {
                 resolve(data);
             }
         });
+    });
+});
+
+//To save a file
+ipcMain.handle("file-save", (event, filePath, data) => {
+    const appPath = app.getPath("userData");
+    const xmlString = builder.buildObject(data);
+
+    fs.writeFile(appPath + "\\" + filePath, xmlString, (err) => {
+        if (err) {
+            console.error("Error saving file:", err);
+            throw err;
+        }
+        console.log("Save!");
     });
 });

@@ -1,7 +1,10 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("electronAPI", {
-    readFile: async (fileName) => {
-        return await ipcRenderer.invoke("read-file", fileName);
+    fileRead: async (fileName) => {
+        return await ipcRenderer.invoke("file-read", fileName);
+    },
+    fileSave: async (fileName, data) => {
+        return await ipcRenderer.invoke("file-save", fileName, data);
     },
 });

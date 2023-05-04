@@ -1,6 +1,6 @@
 //Imports
 import styled from "styled-components";
-import { bgSquareSize } from "../../../../utils/globalConstants";
+import { bgSquareSize } from "../../../../utils";
 
 //Local styles
 export const StyledGrid = styled.div`

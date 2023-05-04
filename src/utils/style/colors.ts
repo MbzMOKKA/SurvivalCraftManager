@@ -1,7 +1,7 @@
-export const colorPrimary = "#309330";
-export const colorSecondary = "#666666";
-export const colorUnusable = "#707070";
-export const colorBordered = {
+export const primary = "#309330";
+export const secondary = "#666666";
+export const unusable = "#707070";
+export const bordered = {
     gray: {
         background: "#6C675C",
         borderTop: "#B5AC9A",

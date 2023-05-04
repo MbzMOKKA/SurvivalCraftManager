@@ -1,6 +1,6 @@
 //Imports
 import { createGlobalStyle } from "styled-components";
-import { navWidth } from "../globalConstants";
+import { navWidth } from "..";
 
 //Global styles
 export default createGlobalStyle`

@@ -1,6 +1,6 @@
 //Imports
 import styled from "styled-components";
-import { colorPrimary } from "../../utils/style/colors";
+import { colors } from "../../utils";
 
 //Local styles
 export const StyledMain = styled.main`
@@ -27,6 +27,6 @@ export const StyledTitle = styled.div`
         animation: animLogo 4s infinite ease-in-out;
     }
     h1 {
-        color: ${colorPrimary};
+        color: ${colors.primary};
     }
 `;

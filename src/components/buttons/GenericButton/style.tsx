@@ -1,19 +1,19 @@
 //Imports
 import styled from "styled-components";
-import { colorBordered } from "../../../utils/style/colors";
+import { colors } from "../../../utils";
 
 //Local styles
 export const StyledGenericButton = styled.button`
-    background-color: ${colorBordered.gray.background};
-    border-top: ${colorBordered.gray.borderTop} 3px solid;
-    border-bottom: ${colorBordered.gray.borderBottom} 3px solid;
-    border-left: ${colorBordered.gray.borderLeft} 3px solid;
-    border-right: ${colorBordered.gray.borderRight} 3px solid;
+    background-color: ${colors.bordered.gray.background};
+    border-top: ${colors.bordered.gray.borderTop} 3px solid;
+    border-bottom: ${colors.bordered.gray.borderBottom} 3px solid;
+    border-left: ${colors.bordered.gray.borderLeft} 3px solid;
+    border-right: ${colors.bordered.gray.borderRight} 3px solid;
     :active {
-        border-top: ${colorBordered.gray.borderBottom} 3px solid;
-        border-bottom: ${colorBordered.gray.borderTop} 3px solid;
-        border-left: ${colorBordered.gray.borderRight} 3px solid;
-        border-right: ${colorBordered.gray.borderLeft} 3px solid;
+        border-top: ${colors.bordered.gray.borderBottom} 3px solid;
+        border-bottom: ${colors.bordered.gray.borderTop} 3px solid;
+        border-left: ${colors.bordered.gray.borderRight} 3px solid;
+        border-right: ${colors.bordered.gray.borderLeft} 3px solid;
     }
     button {
         width: 100%;

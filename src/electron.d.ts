@@ -1,5 +1,6 @@
 declare interface Window {
     electronAPI: {
-        readFile: (fileName: string) => Promise<any>;
+        fileRead: (fileName: string) => Promise<any>;
+        fileSave: (fileName: string, data: any) => Promise<any>;
     };
 }
