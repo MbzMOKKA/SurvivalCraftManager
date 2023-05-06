@@ -9,11 +9,16 @@ export default function Settings() {
     const settings: any[] = data?.Settings?.Setting || [];
     //console.log(settings);
 
-    const testData = {
-        root: {
-            example: {
-                item: "Content",
-            },
+    const testData = [
+        { Name: "SoundsVolume", Value: "0.5" },
+        { Name: "MusicsVolume", Value: "1" },
+    ];
+
+    const testObj = {
+        Settings: {
+            Setting: testData.map((setting) => {
+                return { $: setting };
+            }),
         },
     };
 
@@ -21,7 +26,7 @@ export default function Settings() {
         <StyledMain>
             <button
                 onClick={() => {
-                    fileSave("test.xml", testData);
+                    fileSave("test.xml", testObj);
                 }}
             >
                 SAVE
