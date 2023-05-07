@@ -7,11 +7,13 @@ import BgGrid from "../other/background/BgGrid";
 import Home from "../../pages/Home";
 import ErrorNotFound from "../../pages/ErrorNotFound";
 import Settings from "../../pages/Settings";
+import ModalLoading from "../modals/LoadingModal";
 
 //Component of the web application
 export default function App() {
     return (
         <StyledAppContainer>
+            <ModalLoading />
             <BgGrid />
             <Nav />
             <Routes>

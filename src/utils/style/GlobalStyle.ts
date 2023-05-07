@@ -1,6 +1,6 @@
 //Imports
 import { createGlobalStyle } from "styled-components";
-import { navWidth } from "..";
+import { colors, navWidth } from "..";
 
 //Global styles
 export default createGlobalStyle`
@@ -39,5 +39,13 @@ export default createGlobalStyle`
         padding-left: ${navWidth * 100}vw;
         min-height: 100vh;
         display: flex;
+    }
+    .sc-box {
+        width: 50%;
+        background-color: black;
+        border-width: 2px;
+        border-color: ${colors.bordered.gray.background};
+        border-style: solid;
+        padding: 10px;
     }
 `;
