@@ -35,17 +35,39 @@ export default createGlobalStyle`
         font-size: 38px;
         margin: 8px 0px;
     }
+    h3 {
+        font-size: 20px;
+        font-weight: normal;
+    }
     main{
-        padding-left: ${navWidth * 100}vw;
+        padding: 20px;
+        padding-left: calc(${navWidth * 100}vw + 20px);
         min-height: 100vh;
         display: flex;
     }
     .sc-box {
-        width: 50%;
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.85);
         border-width: 2px;
         border-color: ${colors.bordered.gray.background};
         border-style: solid;
         padding: 10px;
+    }
+    .scrollable {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: ${colors.bordered.gray.background};
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: white;
     }
 `;

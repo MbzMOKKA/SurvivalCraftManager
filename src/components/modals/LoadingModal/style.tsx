@@ -8,7 +8,7 @@ export const StyledBackground = styled.div`
     z-index: 100;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.75);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,6 +19,7 @@ export const StyledModal = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 50%;
 `;
 
 export const StyledDots = styled(LoadingDots)`

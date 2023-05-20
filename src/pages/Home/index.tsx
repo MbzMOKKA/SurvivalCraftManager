@@ -14,11 +14,11 @@ export default function Home() {
             </StyledTitle>
             <StyledFeatures>
                 <ClassicButton name="Worlds" route="/worlds" />
-                <ClassicButton name="Skins" route="/skins" />
+                {/* <ClassicButton name="Skins" route="/skins" />
                 <ClassicButton name="Texture packs" route="/textures" />
-                <ClassicButton name="Furniture packs" route="/furnitures" />
+                <ClassicButton name="Furniture packs" route="/furnitures" /> */}
                 <ClassicButton name="Settings" route="/settings" />
-                <ClassicButton name="Logs" route="/logs" />
+                {/* <ClassicButton name="Logs" route="/logs" /> */}
             </StyledFeatures>
         </StyledMain>
     );

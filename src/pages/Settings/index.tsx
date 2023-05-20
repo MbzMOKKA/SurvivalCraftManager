@@ -1,13 +1,20 @@
 //Imports
 import React from "react";
 import { useReadFile, fileSave } from "../../utils";
-import { StyledMain } from "./style";
+import {
+    StyledMain,
+    StyledList,
+    StyledSaveButton,
+    StyledBottomControls,
+} from "./style";
+import settings from "../../data/settings";
+import Setting from "../../components/inputs/Setting";
 
 //Component of the manage Settings page
 export default function Settings() {
-    const data: any = useReadFile("Settings.xml");
-    const settings: any[] = data?.Settings?.Setting || [];
-    //console.log(settings);
+    const { data: rawSettingsData, isLoaded: settingsAreLoaded }: any =
+        useReadFile("Settings.xml");
+    const settingsData: any[] = rawSettingsData?.Settings?.Setting || [];
 
     const testData = [
         { Name: "SoundsVolume", Value: "0.5" },
@@ -24,22 +31,30 @@ export default function Settings() {
 
     return (
         <StyledMain>
-            <button
-                onClick={() => {
-                    fileSave("test.xml", testObj);
-                }}
-            >
-                SAVE
-            </button>
-            {/* <p>{JSON.stringify(data, null, 2)}</p> */}
-            {data &&
-                settings.map((setting, index) => {
-                    return (
-                        <p key={index}>
-                            {setting.$.Name} = {setting.$.Value}
-                        </p>
-                    );
-                })}
+            <StyledList className="sc-box scrollable">
+                {settingsAreLoaded &&
+                    settings.map((setting, index) => {
+                        const saveFileData = settingsData.find(
+                            (elem) => elem.$.Name === setting.technicalName
+                        ).$;
+                        return (
+                            <Setting
+                                key={index}
+                                displayName={setting.displayName}
+                                value={saveFileData.Value}
+                            />
+                        );
+                    })}
+            </StyledList>
+            <StyledBottomControls>
+                <StyledSaveButton
+                    onClick={() => {
+                        fileSave("test.xml", testObj);
+                    }}
+                >
+                    Apply Changes
+                </StyledSaveButton>
+            </StyledBottomControls>
         </StyledMain>
     );
 }
