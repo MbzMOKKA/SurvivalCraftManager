@@ -5,21 +5,32 @@ import {
     StyledDisplayName,
     StyledInputContainer,
 } from "./style";
+import { arrayStateUpdateElementAtIndex } from "../../../utils";
 
 //Types
 type SettingProps = {
-    displayName: string;
-    value: any;
+    customData: any;
+    saveFileData: any;
+    index: number;
+    setSettingsData: (any: any) => any;
 };
 
 //Component of a feature button in the homepage
 export default function Setting(props: SettingProps) {
-    const { displayName, value } = props;
+    const { customData, saveFileData, index, setSettingsData } = props;
+    const { Name, Value } = saveFileData;
+
+    function updateValue() {
+        arrayStateUpdateElementAtIndex(setSettingsData, index, {
+            $: { Name: Name, Value: "-10" },
+        });
+    }
 
     return (
         <StyledSetting>
-            <StyledDisplayName>{displayName}:</StyledDisplayName>
-            <StyledInputContainer>{value}</StyledInputContainer>
+            <StyledDisplayName>{customData.displayName}:</StyledDisplayName>
+            <StyledInputContainer>{Value}</StyledInputContainer>
+            <button onClick={updateValue}>TEST</button>
         </StyledSetting>
     );
 }

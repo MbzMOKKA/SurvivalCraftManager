@@ -36,7 +36,7 @@ export default createGlobalStyle`
         margin: 8px 0px;
     }
     h3 {
-        font-size: 20px;
+        font-size: 22px;
         font-weight: normal;
     }
     main{

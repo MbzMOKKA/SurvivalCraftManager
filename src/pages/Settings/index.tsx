@@ -1,5 +1,5 @@
 //Imports
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useReadFile, fileSave } from "../../utils";
 import {
     StyledMain,
@@ -12,46 +12,53 @@ import Setting from "../../components/inputs/Setting";
 
 //Component of the manage Settings page
 export default function Settings() {
+    const [settingsData, setSettingsData] = useState<any[]>([]);
     const { data: rawSettingsData, isLoaded: settingsAreLoaded }: any =
         useReadFile("Settings.xml");
-    const settingsData: any[] = rawSettingsData?.Settings?.Setting || [];
 
-    const testData = [
-        { Name: "SoundsVolume", Value: "0.5" },
-        { Name: "MusicsVolume", Value: "1" },
-    ];
+    //save the savefile's data in the state
+    useEffect(() => {
+        if (settingsAreLoaded) {
+            setSettingsData(rawSettingsData.Settings.Setting);
+        }
+    }, [rawSettingsData, settingsAreLoaded]);
 
-    const testObj = {
-        Settings: {
-            Setting: testData.map((setting) => {
-                return { $: setting };
-            }),
-        },
-    };
+    function applyChanges() {
+        fileSave("test.xml", {
+            Settings: {
+                Setting: settingsData,
+            },
+        });
+    }
 
     return (
         <StyledMain>
             <StyledList className="sc-box scrollable">
-                {settingsAreLoaded &&
+                {settingsData.length > 0 &&
                     settings.map((setting, index) => {
+                        let saveFileIndex = -1;
                         const saveFileData = settingsData.find(
-                            (elem) => elem.$.Name === setting.technicalName
+                            (elem, index) => {
+                                if (elem.$.Name === setting.technicalName) {
+                                    saveFileIndex = index;
+                                    return true;
+                                }
+                                return false;
+                            }
                         ).$;
                         return (
                             <Setting
                                 key={index}
-                                displayName={setting.displayName}
-                                value={saveFileData.Value}
+                                customData={setting}
+                                saveFileData={saveFileData}
+                                index={saveFileIndex}
+                                setSettingsData={setSettingsData}
                             />
                         );
                     })}
             </StyledList>
             <StyledBottomControls>
-                <StyledSaveButton
-                    onClick={() => {
-                        fileSave("test.xml", testObj);
-                    }}
-                >
+                <StyledSaveButton onClick={applyChanges}>
                     Apply Changes
                 </StyledSaveButton>
             </StyledBottomControls>
