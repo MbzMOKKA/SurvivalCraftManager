@@ -5,6 +5,7 @@ type Setting = {
     type: SettingTypes;
     attributes?: any;
     description: string;
+    valueDisplayFunction?: (value: any) => any;
 };
 
 enum SettingTypes {
@@ -12,6 +13,19 @@ enum SettingTypes {
     slider,
     text,
     radio,
+}
+
+//Common functions
+function convertToPercent(value: number) {
+    return Math.round(value * 100) + "%";
+}
+
+function addUnitSuffix(value: number, word: string) {
+    return value + " " + word + (Math.abs(value) > 1 ? "s" : "");
+}
+
+function booleanToYesNo(value: string) {
+    return value === "True" ? "Yes" : "No";
 }
 
 //Exports
@@ -22,6 +36,7 @@ const settings: Setting[] = [
         type: SettingTypes.slider,
         attributes: { min: 0, max: 1, step: 0.01 },
         description: "",
+        valueDisplayFunction: convertToPercent,
     },
     {
         displayName: "Music volume",
@@ -29,6 +44,7 @@ const settings: Setting[] = [
         type: SettingTypes.slider,
         attributes: { min: 0, max: 1, step: 0.01 },
         description: "",
+        valueDisplayFunction: convertToPercent,
     },
     {
         displayName: "Visibility range",
@@ -36,6 +52,7 @@ const settings: Setting[] = [
         type: SettingTypes.text,
         attributes: { min: 0, max: undefined, step: 1 },
         description: "",
+        valueDisplayFunction: (value) => addUnitSuffix(value, "block"),
     },
     {
         displayName: "Screen resolution",
@@ -63,12 +80,14 @@ const settings: Setting[] = [
         technicalName: "TerrainMipmapsEnabled",
         type: SettingTypes.boolean,
         description: "",
+        valueDisplayFunction: booleanToYesNo,
     },
     {
         displayName: "Object shadows",
         technicalName: "ObjectsShadowsEnabled",
         type: SettingTypes.boolean,
         description: "",
+        valueDisplayFunction: booleanToYesNo,
     },
     {
         displayName: "Dark areas brightness",
@@ -76,18 +95,21 @@ const settings: Setting[] = [
         type: SettingTypes.slider,
         attributes: { min: 0, max: 0, step: 0.01 },
         description: "",
+        valueDisplayFunction: convertToPercent,
     },
     {
         displayName: "Show Ui in screenshots",
         technicalName: "ShowGuiInScreenshots",
         type: SettingTypes.boolean,
         description: "",
+        valueDisplayFunction: booleanToYesNo,
     },
     {
         displayName: "Show logo in screenshots",
         technicalName: "ShowLogoInScreenshots",
         type: SettingTypes.boolean,
         description: "",
+        valueDisplayFunction: booleanToYesNo,
     },
     {
         displayName: "Screenshot resolution",
@@ -102,12 +124,14 @@ const settings: Setting[] = [
         type: SettingTypes.slider,
         attributes: { min: 0.5, max: 1, step: 0.01 },
         description: "",
+        valueDisplayFunction: convertToPercent,
     },
     {
         displayName: "Hide move/look pads",
         technicalName: "HideMoveLookPads",
         type: SettingTypes.boolean,
         description: "",
+        valueDisplayFunction: booleanToYesNo,
     },
     {
         displayName: "Touchscreen move control",
@@ -128,12 +152,14 @@ const settings: Setting[] = [
         technicalName: "LeftHandedLayout",
         type: SettingTypes.boolean,
         description: "",
+        valueDisplayFunction: booleanToYesNo,
     },
     {
         displayName: "Flip vertical axis",
         technicalName: "FlipVerticalAxis",
         type: SettingTypes.boolean,
         description: "",
+        valueDisplayFunction: booleanToYesNo,
     },
     {
         displayName: "Move sensitivity",
@@ -196,12 +222,14 @@ const settings: Setting[] = [
         technicalName: "AutoJump",
         type: SettingTypes.boolean,
         description: "",
+        valueDisplayFunction: booleanToYesNo,
     },
     {
         displayName: "Horizontal creative flight",
         technicalName: "HorizontalCreativeFlight",
         type: SettingTypes.boolean,
         description: "",
+        valueDisplayFunction: booleanToYesNo,
     },
     {
         displayName: "Community content",
@@ -215,24 +243,28 @@ const settings: Setting[] = [
         technicalName: "MultithreadedTerrainUpdate",
         type: SettingTypes.boolean,
         description: "",
+        valueDisplayFunction: booleanToYesNo,
     },
     {
         displayName: "Display FPS counter",
         technicalName: "DisplayFpsCounter",
         type: SettingTypes.boolean,
         description: "",
+        valueDisplayFunction: booleanToYesNo,
     },
     {
         displayName: "Display FPS ribbon",
         technicalName: "DisplayFpsRibbon",
         type: SettingTypes.boolean,
         description: "",
+        valueDisplayFunction: booleanToYesNo,
     },
     {
         displayName: "UI vertical flip",
         technicalName: "UpsideDownLayout",
         type: SettingTypes.boolean,
         description: "",
+        valueDisplayFunction: booleanToYesNo,
     },
 ];
 

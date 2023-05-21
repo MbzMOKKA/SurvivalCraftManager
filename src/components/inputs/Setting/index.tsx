@@ -26,10 +26,18 @@ export default function Setting(props: SettingProps) {
         });
     }
 
+    function displayValue() {
+        if (customData.valueDisplayFunction === undefined) {
+            return Value;
+        } else {
+            return customData.valueDisplayFunction(Value);
+        }
+    }
+
     return (
         <StyledSetting>
             <StyledDisplayName>{customData.displayName}:</StyledDisplayName>
-            <StyledInputContainer>{Value}</StyledInputContainer>
+            <StyledInputContainer>{displayValue()}</StyledInputContainer>
             <button onClick={updateValue}>TEST</button>
         </StyledSetting>
     );
