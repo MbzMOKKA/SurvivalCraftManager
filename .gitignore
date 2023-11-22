@@ -3,4 +3,3 @@
 /dist
 .prettierrc
 .prettierignore
-package-lock.json

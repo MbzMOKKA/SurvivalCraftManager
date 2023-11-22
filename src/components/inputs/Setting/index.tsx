@@ -6,6 +6,7 @@ import {
     StyledInputContainer,
 } from "./style";
 import { arrayStateUpdateElementAtIndex } from "../../../utils";
+import Cursor from "../Cursor";
 
 //Types
 type SettingProps = {
@@ -37,8 +38,11 @@ export default function Setting(props: SettingProps) {
     return (
         <StyledSetting>
             <StyledDisplayName>{customData.displayName}:</StyledDisplayName>
-            <StyledInputContainer>{displayValue()}</StyledInputContainer>
-            <button onClick={updateValue}>TEST</button>
+            <StyledInputContainer>
+                <Cursor />
+                {/* {displayValue()}
+                <button onClick={updateValue}>TEST</button> */}
+            </StyledInputContainer>
         </StyledSetting>
     );
 }
